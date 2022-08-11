@@ -1,0 +1,27 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink
+      [class.active]="aba === 'home'"
+      (click)="aba = 'home'">Home</a>
+    <ng-template ngbNavContent>First content</ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink
+      [class.active]="aba === 'mapa'"
+      (click)="aba = 'mapa'">Features</a>
+    <ng-template ngbNavContent>Second content</ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink
+      [class.active]="aba === 'lista'"
+      (click)="aba = 'lista'">Pricing</a>
+    <ng-template ngbNavContent>Third content</ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
+
+<div class="container" [ngSwitch]="aba">
+  <p *ngSwitchCase="'mapa'">Modo Mapa ativado</p>
+  <p *ngSwitchCase="'lista'">Modo Lista ativado</p>
+  <p *ngSwitchDefault>Home</p>
+</div>
