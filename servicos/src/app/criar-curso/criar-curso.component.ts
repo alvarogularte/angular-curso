@@ -4,7 +4,8 @@ import { CursosService } from '../cursos/cursos.service';
 @Component({
   selector: 'app-criar-curso',
   templateUrl: './criar-curso.component.html',
-  styleUrls: ['./criar-curso.component.css']
+  styleUrls: ['./criar-curso.component.css'],
+  providers: [CursosService]
 })
 export class CriarCursoComponent implements OnInit {
 
@@ -14,6 +15,9 @@ export class CriarCursoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cursos = this.cursosService.getCursos();
+    this.cursosService.emitirCursoCriado.subscribe(
+      curso => console.log(curso)
+    );
   }
 
   onAddCurso(curso: string) {
