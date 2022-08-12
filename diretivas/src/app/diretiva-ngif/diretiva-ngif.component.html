@@ -18,3 +18,20 @@
 
 <br>
 <button (click)="onMostrarCursos()">Mostrar ou esconder cursos</button>
+<br><br>
+
+<h5>Removendo o * e usando template</h5>
+
+<!-- <div *ngIf="mostrarCursos">
+  Lista de cursos aqui.
+</div> -->
+
+<!-- <template [ngIf]="mostrarCursos">
+  <div>
+    Lista de cursos aqui.
+  </div>
+</template> -->
+
+<div template="ngIf mostrarCursos">
+  Lista de cursos aqui.
+</div>
