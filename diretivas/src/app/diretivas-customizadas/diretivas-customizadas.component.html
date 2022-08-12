@@ -1,4 +1,4 @@
-<p appFundoAmarelo>
+<!-- <p appFundoAmarelo>
   Texto com fundo amarelo.
 </p>
 
@@ -10,4 +10,16 @@
 
 <p [appHighlight]="'red'" [defaultColot]="'grey'">
   Texto com highlight com cores customizadas.
-</p>
+</p> -->
+
+<div *ngIf="mostrarCursos">
+  Lista de cursos aqui.
+</div>
+
+<div *appNgElse="!mostrarCursos">
+  Não existem cursos para serem listados.
+</div>
+
+<br>
+<button (click)="onMostrarCursos()">Mostrar ou esconder cursos</button>
+<br><br>
