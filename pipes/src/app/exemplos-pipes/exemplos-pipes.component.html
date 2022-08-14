@@ -1,7 +1,7 @@
 <h5>Exemplos de Pipes</h5>
 
 <p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
-<p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
+<p>Estrelas: {{ livro.rating | number }}</p>
 <p>Páginas: {{ livro.numeroPaginas | number }}</p>
 <p>Preço: {{ livro.preco | currency:'BRL':true }}</p>
 <p>Data Lançamento: {{ livro.dataLancamento | date:'dd/MMM/yyyy' }}</p>
