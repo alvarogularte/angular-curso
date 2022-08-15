@@ -6,7 +6,7 @@
     <a routerLink="/login" ngbNavLink>Login</a>
   </li>
   <li routerLinkActive="active" ngbNavItem>
-    <a routerLink="/cursos" ngbNavLink>Cursos</a>
+    <a routerLink="/cursos" [queryParams]="{pagina:1}" ngbNavLink>Cursos</a>
   </li>
   <li routerLinkActive="active" ngbNavItem>
     <a [routerLink]="['curso', idCurso.value]" ngbNavLink>Curso com id</a>

@@ -1,3 +1,5 @@
+<p>Página: {{ pagina }}</p>
+
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
   <li ngbNavItem>
     <a ngbNavLink
@@ -8,3 +10,5 @@
   </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>
+
+<button (click)="proximaPagina()">Próxima página</button>
