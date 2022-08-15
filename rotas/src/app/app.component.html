@@ -8,9 +8,9 @@
   <li routerLinkActive="active" ngbNavItem>
     <a routerLink="/cursos" [queryParams]="{pagina:1}" ngbNavLink>Cursos</a>
   </li>
-  <li routerLinkActive="active" ngbNavItem>
+  <!-- <li routerLinkActive="active" ngbNavItem>
     <a [routerLink]="['curso', idCurso.value]" ngbNavLink>Curso com id</a>
-  </li>
+  </li> -->
   <li routerLinkActive="active" ngbNavItem>
     <a routerLink="/alunos" ngbNavLink>Alunos</a>
   </li>
@@ -18,7 +18,7 @@
 <div [ngbNavOutlet]="nav"></div>
 
 <div>
-  <p>Entre com o id do curso</p>
-  <input #idCurso>
+  <!-- <p>Entre com o id do curso</p> -->
+  <!-- <input #idCurso> -->
   <router-outlet></router-outlet>
 </div>

@@ -1,2 +1,13 @@
-<p>alunos works!</p>
+<p>Lista de alunos</p>
+<div>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink
+        *ngFor="let aluno of alunos"
+        [routerLink]="[aluno.id]">
+        {{ aluno.nome }}
+      </a>
+    </li>
+  </ul>
+</div>
 <router-outlet></router-outlet>
