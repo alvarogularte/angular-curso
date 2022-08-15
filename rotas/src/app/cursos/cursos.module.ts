@@ -6,13 +6,13 @@ import { CursoDetalheComponent } from "./curso-detalhe/curso-detalhe.component";
 import { CursosComponent } from "./cursos.component";
 import { CursosService } from "./cursos.service";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
+import { CursosRoutingModule } from "./cursos.routing.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
-    NgbModule,
+    CursosRoutingModule,
+    NgbModule
   ],
   exports: [],
   declarations: [
