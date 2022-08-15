@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { routing } from './app.routing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { routing } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
