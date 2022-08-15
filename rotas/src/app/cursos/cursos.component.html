@@ -1,1 +1,10 @@
-<p>cursos works!</p>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink
+      *ngFor="let curso of cursos"
+      [routerLink]="['/curso', curso.id]">
+      {{ curso.nome }}
+    </a>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
