@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing.module';
 import { CursosModule } from './cursos/cursos.module';
+import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CursosModule } from './cursos/cursos.module';
     BrowserAnimationsModule,
     NgbModule,
     CursosModule,
+    AlunosModule,
     AppRoutingModule
   ],
   providers: [],
