@@ -7,8 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing.module';
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +18,6 @@ import { AlunosModule } from './alunos/alunos.module';
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule,
-    CursosModule,
-    AlunosModule,
     AppRoutingModule
   ],
   providers: [],
