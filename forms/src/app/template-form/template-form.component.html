@@ -1,14 +1,18 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nomeHelp" placeholder="Nome" [(ngModel)]="usuario.nome" required>
+    <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nomeHelp" placeholder="Nome" [(ngModel)]="usuario.nome" required #nome="ngModel">
   </div>
+  <div *ngIf="!nome.valid && nome.touched" class="is-invalid ">Nome é obrigatório!</div>
 
 <!-- Também é possível utilizar o ngModel apenas com o property binding => [ngModel] assim não irá alterar o objeto que será utilizado apenas para inicializar -->
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="nome@email.com" [(ngModel)]="usuario.email" required email>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="nome@email.com" [(ngModel)]="usuario.email" required email #email="ngModel">
+  </div>
+  <div *ngIf="!email.valid && email.touched" class="is-invalid ">
+    Email é obrigatório e precisa estar no formato: nome@email.com!
   </div>
 
   <!-- Pattern RegEx para email: pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" -->
