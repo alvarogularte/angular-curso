@@ -39,4 +39,16 @@ export class AlunoFormComponent implements OnInit {
     this.formMudou = true;
     console.log('mudou');
   }
+
+  podeMudarRota() {
+    if (this.formMudou) {
+      confirm('Tem certeza que deseja sair desta página?')
+    }
+
+    return true;
+  }
+
+  podeDesativar(){
+    return this.podeMudarRota();
+  }
 }

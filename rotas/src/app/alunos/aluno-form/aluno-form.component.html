@@ -3,20 +3,24 @@
 <div class="col s12">
   <div class="row">
     <div class="input-field col s12">
-      <input disabled [(ngModel)]="aluno.id" id="disabled" type="text">
       <label for="disabled" class="active">#</label>
+      <input disabled [(ngModel)]="aluno.id" id="disabled" type="text">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input id="nome" [(ngModel)]="aluno.nome" class="validate" (input)="onInput()">
       <label for="nome" class="active">Nome</label>
+      <input id="nome" [(ngModel)]="aluno.nome" class="validate" (input)="onInput()">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input id="email" [(ngModel)]="aluno.email" type="email" class="validate">
       <label for="email" class="active">Email</label>
+      <input id="email"
+      [(ngModel)]="aluno.email"
+      type="email"
+      class="validate"
+      (input)="onInput()">
     </div>
   </div>
 </div>

@@ -12,12 +12,10 @@ export class AlunosGuard implements CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
     ) {
-    console.log('logando route', route);
-    console.log('logando state', state);
 
     if (state.url.includes('editar')) {
-      alert('Usuário sem acesso');
-      return of(false);
+      // alert('Usuário sem acesso');
+      // return of(false);
     }
 
     return true;
