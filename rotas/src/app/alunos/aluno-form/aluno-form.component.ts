@@ -22,7 +22,7 @@ export class AlunoFormComponent implements OnInit, IFormCanDeactivate {
 
   ngOnInit(): void {
     this.inscricao = this.route.params.subscribe((params: any) => {
-      let id = params['id'];
+      const id = params['id'];
 
       this.aluno = this.alunosService.getAluno(id);
 

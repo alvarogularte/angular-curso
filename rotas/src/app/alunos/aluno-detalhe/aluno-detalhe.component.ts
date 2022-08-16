@@ -30,8 +30,10 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
     console.log(this.route);
 
     this.inscricao = this.route.data.subscribe(
-      (info: {aluno: Aluno}) => {
-      this.aluno = info.aluno
+      (info: {aluno?: Aluno}) => {
+        if (info?.aluno) {
+          this.aluno = info.aluno
+        }
     })
 
   }
