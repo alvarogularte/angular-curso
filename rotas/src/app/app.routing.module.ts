@@ -30,7 +30,7 @@ const APP_ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES)],
+  imports: [RouterModule.forRoot(APP_ROUTES, {useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
