@@ -1,22 +1,22 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-  <li ngbNavItem>
-    <a routerLink="" ngbNavLink>Rotas Ng2</a>
-  </li>
-  <li routerLinkActive="active" ngbNavItem>
-    <a routerLink="/login" ngbNavLink>Login</a>
-  </li>
-  <li routerLinkActive="active" ngbNavItem>
-    <a routerLink="/cursos" [queryParams]="{pagina:1}" ngbNavLink>Cursos</a>
-  </li>
-  <!-- <li routerLinkActive="active" ngbNavItem>
-    <a [routerLink]="['curso', idCurso.value]" ngbNavLink>Curso com id</a>
-  </li> -->
-  <li routerLinkActive="active" ngbNavItem>
-    <a routerLink="/alunos" ngbNavLink>Alunos</a>
-  </li>
-</ul>
-<div [ngbNavOutlet]="nav"></div>
-
+<nav *ngIf="mostrarMenu">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a routerLink="" ngbNavLink>Rotas Ng2</a>
+    </li>
+    <li routerLinkActive="active" ngbNavItem>
+      <a routerLink="/login" ngbNavLink>Login</a>
+    </li>
+    <li routerLinkActive="active" ngbNavItem>
+      <a routerLink="/cursos" [queryParams]="{pagina:1}" ngbNavLink>Cursos</a>
+    </li>
+    <!-- <li routerLinkActive="active" ngbNavItem>
+      <a [routerLink]="['curso', idCurso.value]" ngbNavLink>Curso com id</a>
+    </li> -->
+    <li routerLinkActive="active" ngbNavItem>
+      <a routerLink="/alunos" ngbNavLink>Alunos</a>
+    </li>
+  </ul>
+</nav>
 <div>
   <!-- <p>Entre com o id do curso</p> -->
   <!-- <input #idCurso> -->

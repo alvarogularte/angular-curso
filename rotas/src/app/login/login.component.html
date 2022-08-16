@@ -1,1 +1,17 @@
-<p>login works!</p>
+<h5>Login</h5>
+
+<div class="input-group flex-nowrap">
+  <span class="input-group-text" id="usuario">Usuário:</span>
+  <input [(ngModel)]="usuario.nome" type="text" class="form-control" aria-label="Password" aria-describedby="usuario">
+</div>
+
+<div class="input-group flex-nowrap">
+  <span class="input-group-text" id="senha">Senha:</span>
+  <input [(ngModel)]="usuario.senha" type="password" class="form-control" aria-label="Password" aria-describedby="senha">
+</div>
+
+<button type="button"
+  class="btn btn-outline-secondary"
+  (click)="fazerLogin()">
+    Login
+  </button>
