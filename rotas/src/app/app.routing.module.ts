@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { CursosGuard } from "./cursos/guards/cursos.guard";
+import { PaginaNaoEncontradaComponent } from "./pagina-nao-encontrada/pagina-nao-encontrada.component";
 
 // Mudança na forma de utilizar loadChildren -- fonte: https://stackoverflow.com/questions/70313032/type-string-is-not-assignable-to-type-loadchildrencallback
 
@@ -23,7 +24,9 @@ const APP_ROUTES: Routes = [
       canLoad: [AuthGuard]
     },
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
 @NgModule({
