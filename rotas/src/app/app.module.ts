@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './guards/auth.guard';
-import { CursosGuard } from './guards/cursos.guard';
-import { AlunosGuard } from './guards/alunos.guard';
+import { CursosGuard } from './cursos/guards/cursos.guard';
+import { AlunosGuard } from './alunos/guards/alunos.guard';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';

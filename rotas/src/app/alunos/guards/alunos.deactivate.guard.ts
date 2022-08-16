@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IFormCanDeactivate } from './iform-candeactivate';
+import { IFormCanDeactivate } from '../../guards/iform-candeactivate';
 
 @Injectable({
   providedIn: 'root'})
