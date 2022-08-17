@@ -41,17 +41,31 @@ export class DataFormComponent implements OnInit {
 
   onSubmit() {
 
-    if (this.formulario) {
+    if (this.formulario.valid) {
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
       .subscribe({
         next: (dados) => console.log(dados),
         error: (e) => alert(`deu ruim ${e}`),
         complete: () => this.resetar(),
       })
+    } else {
+      console.log('form inválido');
+      this.verificaValidacoesForm(this.formulario);
     }
-
-
   }
+
+  verificaValidacoesForm(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(campo => {
+      console.log(campo);
+      const controle = formGroup.get(campo);
+      controle?.markAsDirty();
+
+      if (controle instanceof FormGroup) {
+        this.verificaValidacoesForm(controle);
+      }
+    });
+  }
+
 
   resetar() {
     this.formulario.reset();
@@ -78,9 +92,9 @@ export class DataFormComponent implements OnInit {
 
   // consultaCEP() {
 
-  //   let cep = this.formulario.get('endereco.cep')['controls'];
+  //   let cep = this.formulario.get('endereco.cep');
 
-  //   cep = cep!.replace(/\D/g, '');
+  //   cep = cep.replace(/\D/g, '');
   //   console.log('logando depois do replace', cep);
 
   //   if (cep != "") {
