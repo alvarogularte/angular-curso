@@ -1,12 +1,22 @@
 <form class="row" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div class="mb-3">
+  <div class="mb-3" [ngClass]="aplicaCssErro('nome')">
     <label for="nome" class="form-label">Nome</label>
     <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Nome">
+
+    <!-- <app-campo-control-erro
+      [mostrarErro]="verificaValidTouched('nome')"
+      msgErro="Nome é obrigatório">
+    </app-campo-control-erro> -->
   </div>
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@email.com">
+
+    <app-campo-control-erro
+      [mostrarErro]="verificaEmailInvalido()"
+      msgErro="Nome é obrigatório">
+    </app-campo-control-erro>
   </div>
 
   <!-- <div ngModelGroup="endereco">
