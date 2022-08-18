@@ -18,6 +18,5 @@ import { DropdownService } from './services/dropdown.service';
     FormDebugComponent,
     CampoControlErroComponent,
   ],
-  providers: [ DropdownService ]
 })
 export class SharedModule { }
