@@ -93,7 +93,7 @@
   </div>
 
   <div class="form-group">
-    <div class="col-md-3" [ngClass]="aplicaCssErro('cargo')">
+    <div class="col-md-4" [ngClass]="aplicaCssErro('cargo')">
       <label for="cargo">Cargo</label>
       <select class="form-control" id="cargo" name="cargo" aria-label="Cargo" formControlName="cargo" [compareWith]="compararCargos">
         <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</option>
@@ -105,6 +105,17 @@
       <select class="form-control" id="tecnologias" name="tecnologias" aria-label="tecnologisa" formControlName="tecnologias" multiple>
         <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome">{{ tecnologia.desc }}</option>
       </select>
+    </div>
+
+    <div class="col-md-3" [ngClass]="aplicaCssErro('newsletter')">
+      <label for="newsletter">Newsletter</label>
+      <div id="newsletter" class="row">
+        <div class="col-sm-4" *ngFor="let item of newsletterOptions">
+          <label for="" class="form-check-label">
+            <input type="radio" class="form-check-input" [value]="item.valor" formControlName="newsletter" /> {{ item.desc }}
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 
