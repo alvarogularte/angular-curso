@@ -128,17 +128,16 @@
       </div>
     </div>
 
-    <!-- Dando erro ao tentar renderizar os elementos de frameworks -->
-    <!-- <div class="col-sm-3">
+    <div class="col-md-3">
       <label for="frameworks">Frameworks</label>
       <div id="frameworks" class="row">
-        <div class="form-check-inline col-sm-3" formArrayName="frameworks" *ngFor="let framework of formulario.get('frameworks')['controls']; let i = index">
+        <div class="form-check-inline col-sm-4" formArrayName="frameworks" *ngFor="let item of getFrameworksControls(); let i = index">
           <label for="termos" class="form-check-label">
             <input type="checkbox" id="termos" class="form-check-input" [formControlName]="i" /> {{ frameworks[i] }}
           </label>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <div style="margin-top: 20px">

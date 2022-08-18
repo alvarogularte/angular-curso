@@ -5,6 +5,7 @@ import { DropdownService } from '../shared/services/dropdown.service';
 import { EstadoBr } from '../shared/models/estado-br';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { Observable } from 'rxjs';
+import { FormValidations } from '../shared/forms-validations';
 
 @Component({
   selector: 'app-data-form',
@@ -43,7 +44,7 @@ export class DataFormComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
 
       endereco: this.formBuilder.group({
-        cep: [null, Validators.required],
+        cep: [null, [Validators.required, FormValidations.cepValidator]],
         numero: [null, Validators.required],
         complemento: [null],
         rua: [null, Validators.required],
@@ -56,33 +57,14 @@ export class DataFormComponent implements OnInit {
       tecnologias: [null, Validators.required],
       newsletter: ['s'],
       termos: [null, Validators.pattern('true')],
-      frameworks: [this.buildFrameworks()],
+      // frameworks: [this.buildFrameworks()],
     })
   }
 
-  buildFrameworks() {
-    const values = this.frameworks.map(v => new FormControl(false))
-
-    // return this.formBuilder.array(values, this.requiredMinCheckboxk(1));
-  }
-
-  requiredMinCheckboxk(min = 1) {
-    const validator = (formArray: FormArray) => {
-      // const values = formArray.controls;
-
-      // let totalChecked = 0;
-      // for (let i = 0; i < values.length; i++) {
-      //   if (values[i].value) {
-      //     totalChecked += 1;
-      //   }
-      // }
-      const totalChecked = formArray.controls
-        .map(v => v.value)
-        .reduce((total, current) => current ? total + current : total, 0);
-      return totalChecked >= min ? null : { required: true };
-    }
-    return validator;
-  }
+  // buildFrameworks() {
+  //   const values = this.frameworks.map(v => new FormControl(false));
+  //   return this.formBuilder.array(values, FormValidations.requiredMinCheckbox(1));
+  // }
 
   onSubmit() {
 
@@ -189,5 +171,9 @@ export class DataFormComponent implements OnInit {
 
   setarTecnologias() {
     this.formulario.get('tecnologias')?.setValue(['java', 'javascript', 'php'])
+  }
+
+  getFrameworksControls() {
+    return this.formulario.get('frameworks') ? (<FormArray>this.formulario.get('frameworks')).controls : null;
   }
 }
