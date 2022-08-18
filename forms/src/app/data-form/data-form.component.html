@@ -120,11 +120,25 @@
   </div>
 
   <div class="form-group">
-    <div class="form-check-inline">
-      <label for="termos" class="form-check-label">
-        <input type="checkbox" id="termos" class="form-check-input" formControlName="termos" /> Aceito os termos.
-      </label>
+    <div class="col-sm-3">
+      <div class="form-check-inline">
+        <label for="termos" class="form-check-label">
+          <input type="checkbox" id="termos" class="form-check-input" formControlName="termos" /> Aceito os termos.
+        </label>
+      </div>
     </div>
+
+    <!-- Dando erro ao tentar renderizar os elementos de frameworks -->
+    <!-- <div class="col-sm-3">
+      <label for="frameworks">Frameworks</label>
+      <div id="frameworks" class="row">
+        <div class="form-check-inline col-sm-3" formArrayName="frameworks" *ngFor="let framework of formulario.get('frameworks')['controls']; let i = index">
+          <label for="termos" class="form-check-label">
+            <input type="checkbox" id="termos" class="form-check-input" [formControlName]="i" /> {{ frameworks[i] }}
+          </label>
+        </div>
+      </div>
+    </div> -->
   </div>
 
   <div style="margin-top: 20px">

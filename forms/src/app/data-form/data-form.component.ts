@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { DropdownService } from '../shared/services/dropdown.service';
 import { EstadoBr } from '../shared/models/estado-br';
@@ -18,6 +18,7 @@ export class DataFormComponent implements OnInit {
   cargos: any[] = [];
   tecnologias: any[] = [];
   newsletterOptions: any[] = [];
+  frameworks: any[] = ['Angular', 'React', 'Vue', 'Sencha']
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,14 +55,29 @@ export class DataFormComponent implements OnInit {
       cargo: [null],
       tecnologias: [null, Validators.required],
       newsletter: ['s'],
-      termos: [null, Validators.pattern('true')]
+      termos: [null, Validators.pattern('true')],
+      frameworks: [this.buildFrameworks()],
     })
+  }
+
+  buildFrameworks() {
+    const values = this.frameworks.map(v => new FormControl(false))
+
+    return this.formBuilder.array(values);
   }
 
   onSubmit() {
 
+    let valueSubmit = Object.assign({}, this.formulario.value);
+
+    valueSubmit = Object.assign(valueSubmit, {
+      frameworks: valueSubmit.frameworks
+        .map((v: any, i: any) => v ? this.frameworks[i] : null)
+        .filter((v: null) => v !== null)
+    })
+
     if (this.formulario.valid) {
-      this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+      this.http.post('https://httpbin.org/post', JSON.stringify(valueSubmit))
       .subscribe({
         next: (dados) => console.log(dados),
         error: (e) => alert(`deu ruim ${e}`),
