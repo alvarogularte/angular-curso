@@ -15,6 +15,7 @@ export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
   estados!: Observable<EstadoBr[]>;
+  cargos: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,13 +29,7 @@ export class DataFormComponent implements OnInit {
     // Pipe async(no form.html) faz o subscribe e unsubscribe automaticamente
     this.estados = this.dropdownService.getEstadosBr();
 
-    // this.formulario = new FormGroup({
-    //   nome: new FormControl(null),
-    //   email: new FormControl(null),
-    // });
-
-    // this.dropdownService.getEstadosBr()
-    //   .subscribe(dados => this.estados = dados)
+    this.cargos = this.dropdownService.getCargos();
 
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
@@ -48,7 +43,9 @@ export class DataFormComponent implements OnInit {
         bairro: [null, Validators.required],
         cidade: [null, Validators.required],
         estado: [null, Validators.required],
-      })
+      }),
+
+      cargo: [null]
     })
   }
 
@@ -85,8 +82,6 @@ export class DataFormComponent implements OnInit {
   }
 
   verificaValidTouched(campo: string) {
-
-    // this.formulario.controls[campo]
     return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched;
   }
 
@@ -124,8 +119,6 @@ export class DataFormComponent implements OnInit {
         estado: dados.uf
       }
     })
-
-    // this.formulario.get('nome')?.setValue('Álvaro');
   }
 
   resetaDadosForm() {
@@ -140,4 +133,14 @@ export class DataFormComponent implements OnInit {
     })
   }
 
+  setarCargo() {
+    const cargo = { nome: 'Dev', nivel: 'Pleno', desc: 'Dev Pl' };
+    this.formulario.get('cargo')?.setValue(cargo);
+  }
+
+  compararCargos(obj1: any, obj2: any) {
+    return obj1 && obj2 ?
+      (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel) :
+        obj1 === obj2;
+  }
 }
