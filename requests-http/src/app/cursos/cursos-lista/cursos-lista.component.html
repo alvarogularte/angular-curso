@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="card-body">
-    <table class="table table-hover" *ngIf="cursos$ | async as cursos; else loadingError">
+    <table class="table table-hover" *ngIf="cursos$ | async as cursos;">
       <thead>
         <tr>
           <th>#</th>
@@ -37,14 +37,15 @@
       </tbody>
     </table>
 
-    <ng-template #loadingError>
+    <ng-template #loading>
+      <span>Carregando curso...</span>
+    </ng-template>
+
+    <!-- <ng-template #loadingError>
       <div *ngIf="error$ | async; else loading">
         Erro ao carregar cursos. Tente novamente mais tarde.
       </div>
-      <ng-template #loading>
-        <span>Carregando curso...</span>
-      </ng-template>
-    </ng-template>
+    </ng-template> -->
 
     <ng-template #deleteModal>
       <div class="modal-body text-center">
