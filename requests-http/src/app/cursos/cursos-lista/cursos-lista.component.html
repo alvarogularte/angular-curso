@@ -35,6 +35,10 @@
       </tbody>
     </table>
 
-    <ng-template #loading>
-      <span>Carregando cursos...</span>
+    <ng-template #deleteModal #loading>
+      <div class="modal-body text-center">
+        <p>Tem certeza que deseja remover esse curso?</p>
+        <button type="button" class="btn btn-default">Sim</button>
+        <button type="button" class="btn btn-primary">Nao</button>
+      </div>
     </ng-template>
