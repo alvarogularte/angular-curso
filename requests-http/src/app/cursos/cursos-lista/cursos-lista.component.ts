@@ -4,7 +4,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { catchError, EMPTY, Observable, Subject } from 'rxjs';
 import { AlertModalService } from 'src/app/shared/alert-modal.service';
 import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
-import { Curso } from '../cursos';
+import { Curso } from '../curso';
 import { CursosService } from '../cursos.service';
 
 @Component({

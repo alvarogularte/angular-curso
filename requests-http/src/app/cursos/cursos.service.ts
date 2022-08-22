@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Curso } from './cursos';
+import { Curso } from './curso';
 import { delay, take, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -22,7 +22,7 @@ export class CursosService {
   }
 
   loadById(id: number) {
-    return this.http.get(`${this.API}/${id}`).pipe(take(1));
+    return this.http.get<Curso>(`${this.API}/${id}`).pipe(take(1));
   }
 
   create(curso: Curso) {
